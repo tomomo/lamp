@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  apache-php73:
+    container_name: example_web73
+    image: lamp_apache-php73
+    restart: always
+    ports:
+      - 8073:80
+    volumes:
+      - .:/var/www/html:Z
+      # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # - ./msmtprc:/etc/msmtprc:ro
   apache-php74:
     container_name: example_web74
     image: lamp_apache-php74

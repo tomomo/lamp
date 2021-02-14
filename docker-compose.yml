@@ -1,6 +1,10 @@
 version: "3"
 
 services:
+  apache-php73:
+    build:
+      context: ./
+      dockerfile: ./containers/apache24/php73/Dockerfile
   apache-php74:
     build:
       context: ./
