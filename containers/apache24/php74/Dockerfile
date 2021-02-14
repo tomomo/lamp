@@ -18,7 +18,7 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
   && \
  apt-get clean \
   && \
- pecl install imagick-3.4.3 redis-5.3.2
+ pecl install imagick-3.4.4 redis-5.3.3
 
 RUN NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
  docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -59,7 +59,5 @@ COPY ./containers/apache24/sites-enabled /etc/apache2/sites-enabled
 
 RUN touch /etc/msmtprc && \
  chmod 777 /etc/msmtprc
-
-RUN apt-get install -y msmtp msmtp-mta
 
 WORKDIR /var/www/html
