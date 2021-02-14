@@ -13,3 +13,7 @@ services:
     build:
       context: ./
       dockerfile: ./containers/apache24/php80/Dockerfile
+  mariadb55:
+    build: ./containers/mariadb55
+  phpmyadmin:
+    build: ./containers/phpmyadmin

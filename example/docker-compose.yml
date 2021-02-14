@@ -33,3 +33,31 @@ services:
       - .:/var/www/html:Z
       # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
+  db:
+    container_name: example_db
+    image: lamp_mariadb55
+    restart: always
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database_name
+      - MYSQL_USER=appuser
+      - MYSQL_PASSWORD=devpass
+  phpmyadmin:
+    container_name: example_phpmyadmin
+    image: lamp_phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8306:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+volumes:
+  data:
+    external:
+      name: lamp-db
