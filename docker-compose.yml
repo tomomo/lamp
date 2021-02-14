@@ -9,3 +9,7 @@ services:
     build:
       context: ./
       dockerfile: ./containers/apache24/php74/Dockerfile
+  apache-php80:
+    build:
+      context: ./
+      dockerfile: ./containers/apache24/php80/Dockerfile

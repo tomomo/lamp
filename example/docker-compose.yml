@@ -23,3 +23,13 @@ services:
       - .:/var/www/html:Z
       # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
+  apache-php80:
+    container_name: example_web80
+    image: lamp_apache-php80
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html:Z
+      # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # - ./msmtprc:/etc/msmtprc:ro
