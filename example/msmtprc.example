@@ -1,0 +1,21 @@
+#
+# MTA設定例
+#
+# これを複製して"msmtprc"を作成し、account defaultを設定する。
+# パスワードを含むものなので"msmtprc"はgitに含めないこと。
+#
+
+defaults
+
+################ gmail.com
+account gmail
+port          587
+tls           on
+host          smtp.gmail.com
+from          XXXXXXXX@gmail.com
+auth          on
+user          XXXXXXXX@gmail.com
+password      XXXXXXXX
+
+################ 使用するアカウント
+account default : gmail
