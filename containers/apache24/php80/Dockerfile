@@ -19,13 +19,15 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
  apt-get clean \
   && \
  pecl install redis-5.3.3
-# MEMO: imagick-3.4.4 が使えない
+# NOTE: imagick-3.4.4 が使えない
+
+# NOTE: https://github.com/Imagick/imagick/issues/331
+RUN mkdir -p /usr/src/php/ext/imagick && \
+ curl -fsSL https://github.com/Imagick/imagick/archive/06116aa24b76edaf6b1693198f79e6c295eda8a9.tar.gz | tar xvz -C "/usr/src/php/ext/imagick" --strip 1
 
 RUN NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
- docker-php-ext-configure gd --with-freetype --with-jpeg \
-  && \
- docker-php-ext-enable redis \
-  && \
+ docker-php-ext-configure gd --with-freetype --with-jpeg && \
+ docker-php-ext-enable redis && \
  docker-php-ext-install -j${NPROC} \
   bcmath \
   ctype \
@@ -37,7 +39,8 @@ RUN NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   mbstring \
   tokenizer \
   mysqli pdo_mysql \
-  pgsql pdo_pgsql
+  pgsql pdo_pgsql \
+  imagick
 
 RUN a2enmod authn_socache cache deflate expires headers http2 proxy proxy_fcgi rewrite socache_shmcb ssl && \
  a2dissite 000-default

@@ -29,6 +29,7 @@ PHP7.4を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウ
 ### apache24-php80
 PHP8.0を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウェブサーバー。<br>
 `Imagick`は[不具合](https://github.com/Imagick/imagick/issues/358)のため有効化出来ていない。
+→イレギュラーなやり方で対応した。
 ### mariadb55
 [MariaDB](https://mariadb.org/)5.5。<br>
 日本時間の設定や文字コードを`utf8mb4`に設定。
