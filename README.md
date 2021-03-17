@@ -6,6 +6,8 @@ LAMP環境（Linux,Apache,MariaDB,PHP）を構築するためのDockerコンテ�
 [Docker Desktop on Mac, Docker Desktop on Winows](https://docs.docker.com/compose/install/)などがインストールされ、`docker-compose`が使える状態であること。
 ## 作り方
 1. 当プロジェクトをチェックアウトする。
+1. `docker-compose.example.yml`を参考に、自身の環境にあった`docker-compose.yml`を作成する。
+    - WSL2などでホストのUIDと異なる場合は`args`で`UID`を指定する。
 1. `docker-compose build`を実行し、コンテナイメージを作成する。
     ```bash
     # 例）下記のような感じで作成されているはず。
