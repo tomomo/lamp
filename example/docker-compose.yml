@@ -1,6 +1,28 @@
 version: "3"
 
 services:
+  apache-php80:
+    container_name: example_web80
+    image: lamp_apache-php80
+    restart: always
+    ports:
+      - 8080:80
+      - 80:80
+      - 443:443
+    volumes:
+      - .:/var/www/html:Z
+      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # - ./msmtprc:/etc/msmtprc:ro
+  apache-php74:
+    container_name: example_web74
+    image: lamp_apache-php74
+    restart: always
+    ports:
+      - 8074:80
+    volumes:
+      - .:/var/www/html:Z
+      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # - ./msmtprc:/etc/msmtprc:ro
   apache-php73:
     container_name: example_web73
     image: lamp_apache-php73
@@ -9,29 +31,7 @@ services:
       - 8073:80
     volumes:
       - .:/var/www/html:Z
-      # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
-      # - ./msmtprc:/etc/msmtprc:ro
-  apache-php74:
-    container_name: example_web74
-    image: lamp_apache-php74
-    restart: always
-    ports:
-      - 8074:80
-      - 80:80
-      - 443:443
-    volumes:
-      - .:/var/www/html:Z
-      # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
-      # - ./msmtprc:/etc/msmtprc:ro
-  apache-php80:
-    container_name: example_web80
-    image: lamp_apache-php80
-    restart: always
-    ports:
-      - 8080:80
-    volumes:
-      - .:/var/www/html:Z
-      # # MEMO: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
   db:
     container_name: example_db
