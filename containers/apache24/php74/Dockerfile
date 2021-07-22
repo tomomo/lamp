@@ -58,7 +58,7 @@ RUN mkdir -p /etc/apache2/certs \
 
 # COPY ./vhosts /etc/apache2/sites-enabled
 # MEMO: used context for docker-compose.yml
-COPY ./containers/apache24/sites-enabled /etc/apache2/sites-enabled
+COPY ./apache24/sites-enabled /etc/apache2/sites-enabled
 
 ARG UID=33
 
