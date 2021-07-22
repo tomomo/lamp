@@ -7,8 +7,8 @@ LAMP環境（Linux,Apache,MariaDB,PHP）を構築するためのDockerコンテ�
 ## 作り方
 1. 当プロジェクトをチェックアウトする。
 1. `docker-compose.example.yml`を参考に、自身の環境にあった`docker-compose.yml`を作成する。
-    - WSL2などでホストのUIDと異なる場合は`args`で`UID`を指定する。
-1. `docker-compose build`を実行し、コンテナイメージを作成する。
+2. `env`を参考に、自身の環境にあった`.env`を作成する。
+3. `docker compose build`を実行し、コンテナイメージを作成する。
     ```bash
     # 例）下記のような感じで作成されているはず。
     $ docker images
@@ -35,6 +35,3 @@ PHP8.0を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウ
 ### mariadb55
 [MariaDB](https://mariadb.org/)5.5。<br>
 日本時間の設定や文字コードを`utf8mb4`に設定。
-### phpmyadmin
-[phpMyAdmin](https://www.phpmyadmin.net/)。<br>
-ダンプファイルを取り込む事が多いことなどから、インポートのファイルサイズを増やしている。
