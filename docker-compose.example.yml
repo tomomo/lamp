@@ -1,25 +1,23 @@
 version: "3.9"
 
 services:
-  apache-php73:
-    build:
-      context: ./
-      dockerfile: ./containers/apache24/php73/Dockerfile
-      # args:
-      #   - UID=1000
-  apache-php74:
-    build:
-      context: ./
-      dockerfile: ./containers/apache24/php74/Dockerfile
-      # args:
-      #   - UID=1000
   apache-php80:
     build:
-      context: ./
-      dockerfile: ./containers/apache24/php80/Dockerfile
-      # args:
-      #   - UID=1000
+      context: ./containers
+      dockerfile: ./apache24/php80/Dockerfile
+      args:
+        - UID=${UID}
+  apache-php74:
+    build:
+      context: ./containers
+      dockerfile: ./apache24/php74/Dockerfile
+      args:
+        - UID=${UID}
+  apache-php73:
+    build:
+      context: ./containers
+      dockerfile: ./apache24/php73/Dockerfile
+      args:
+        - UID=${UID}
   mariadb55:
     build: ./containers/mariadb55
-  phpmyadmin:
-    build: ./containers/phpmyadmin

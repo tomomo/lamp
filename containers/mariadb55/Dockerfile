@@ -12,8 +12,8 @@ RUN { \
   echo 'skip-character-set-client-handshake'; \
   echo '[client]'; \
   echo 'default-character-set=utf8mb4'; \
- } > /etc/mysql/conf.d/charset.cnf \
- && \
- { \
+  } > /etc/mysql/conf.d/charset.cnf \
+  && \
+  { \
   echo 'mysqld: ALL: allow'; \
- } >> /etc/hosts.allow
+  } >> /etc/hosts.allow
