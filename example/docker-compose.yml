@@ -57,7 +57,10 @@ services:
       - PMA_HOST=db
       - PMA_USER=root
       - PMA_PASSWORD=root
+      - MEMORY_LIMIT=256M
+      - UPLOAD_LIMIT=256M
+      - MAX_EXECUTION_TIME=0
 volumes:
   data:
     external: true
-    name: lamp-db
+    name: example-db

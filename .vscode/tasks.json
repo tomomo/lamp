@@ -4,15 +4,15 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "EXAMPLE: docker-compose up -d",
+      "label": "EXAMPLE: docker compose up -d",
       "type": "shell",
-      "command": "docker-compose -f example/docker-compose.yml up -d",
+      "command": "docker compose -f example/docker-compose.yml up -d",
       "problemMatcher": []
     },
     {
-      "label": "EXAMPLE: docker-compose down",
+      "label": "EXAMPLE: docker compose down",
       "type": "shell",
-      "command": "docker-compose -f example/docker-compose.yml down",
+      "command": "docker compose -f example/docker-compose.yml down",
       "problemMatcher": []
     }
   ]
