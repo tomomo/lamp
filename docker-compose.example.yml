@@ -8,23 +8,30 @@ services:
       dockerfile: ./containers/apache-2.4/php-8.1-nodejs/Dockerfile
       args:
         - UID=${UID}
-  # apache-php80:
-  #   build:
-  #     context: ./containers
-  #     dockerfile: ./apache24/php80/Dockerfile
-  #     args:
-  #       - UID=${UID}
-  # apache-php74:
-  #   build:
-  #     context: ./containers
-  #     dockerfile: ./apache24/php74/Dockerfile
-  #     args:
-  #       - UID=${UID}
-  # apache-php73:
-  #   build:
-  #     context: ./containers
-  #     dockerfile: ./apache24/php73/Dockerfile
-  #     args:
-  #       - UID=${UID}
-  # mariadb55:
-  #   build: ./containers/mariadb55
+  php80:
+    image: lamp-php:8.0-nodejs-apache
+    build:
+      context: ./
+      dockerfile: ./containers/apache-2.4/php-8.0-nodejs/Dockerfile
+      args:
+        - UID=${UID}
+  php74:
+    image: lamp-php:7.4-nodejs-apache
+    build:
+      context: ./
+      dockerfile: ./containers/apache-2.4/php-7.4-nodejs/Dockerfile
+      args:
+        - UID=${UID}
+  php73:
+    image: lamp-php:7.3-nodejs-apache
+    build:
+      context: ./
+      dockerfile: ./containers/apache-2.4/php-7.3-nodejs/Dockerfile
+      args:
+        - UID=${UID}
+  mysql55:
+    image: lamp-mysql:5.5
+    build: ./containers/mysql-5.5
+  mariadb10:
+    image: lamp-mariadb:10.7
+    build: ./containers/mariadb-10.7
