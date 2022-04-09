@@ -1,23 +1,30 @@
 version: "3.9"
 
 services:
-  apache-php80:
+  php81:
+    image: lamp-php:8.1-nodejs-apache
     build:
-      context: ./containers
-      dockerfile: ./apache24/php80/Dockerfile
+      context: ./
+      dockerfile: ./containers/apache-2.4/php-8.1-nodejs/Dockerfile
       args:
         - UID=${UID}
-  apache-php74:
-    build:
-      context: ./containers
-      dockerfile: ./apache24/php74/Dockerfile
-      args:
-        - UID=${UID}
-  apache-php73:
-    build:
-      context: ./containers
-      dockerfile: ./apache24/php73/Dockerfile
-      args:
-        - UID=${UID}
-  mariadb55:
-    build: ./containers/mariadb55
+  # apache-php80:
+  #   build:
+  #     context: ./containers
+  #     dockerfile: ./apache24/php80/Dockerfile
+  #     args:
+  #       - UID=${UID}
+  # apache-php74:
+  #   build:
+  #     context: ./containers
+  #     dockerfile: ./apache24/php74/Dockerfile
+  #     args:
+  #       - UID=${UID}
+  # apache-php73:
+  #   build:
+  #     context: ./containers
+  #     dockerfile: ./apache24/php73/Dockerfile
+  #     args:
+  #       - UID=${UID}
+  # mariadb55:
+  #   build: ./containers/mariadb55

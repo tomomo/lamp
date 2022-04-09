@@ -1,66 +1,78 @@
 version: "3"
 
 services:
-  apache-php80:
-    container_name: example_web80
-    image: lamp_apache-php80
+  php81:
+    container_name: php81
+    image: lamp-php:8.1-nodejs-apache
     restart: always
     ports:
-      - 8080:80
+      - 8081:80
       - 80:80
       - 443:443
     volumes:
       - .:/var/www/html:Z
       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
-  apache-php74:
-    container_name: example_web74
-    image: lamp_apache-php74
-    restart: always
-    ports:
-      - 8074:80
-    volumes:
-      - .:/var/www/html:Z
-      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
-      # - ./msmtprc:/etc/msmtprc:ro
-  apache-php73:
-    container_name: example_web73
-    image: lamp_apache-php73
-    restart: always
-    ports:
-      - 8073:80
-    volumes:
-      - .:/var/www/html:Z
-      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
-      # - ./msmtprc:/etc/msmtprc:ro
-  db:
-    container_name: example_db
-    image: lamp_mariadb55
-    restart: always
-    volumes:
-      - data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=database_name
-      - MYSQL_USER=appuser
-      - MYSQL_PASSWORD=devpass
-  phpmyadmin:
-    container_name: example_phpmyadmin
-    image: lamp_phpmyadmin
-    restart: always
-    depends_on:
-      - db
-    ports:
-      - "8306:80"
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=db
-      - PMA_USER=root
-      - PMA_PASSWORD=root
-      - MEMORY_LIMIT=256M
-      - UPLOAD_LIMIT=256M
-      - MAX_EXECUTION_TIME=0
-volumes:
-  data:
-    external: true
-    name: example-db
+#   apache-php80:
+#     container_name: example_web80
+#     image: lamp_apache-php80
+#     restart: always
+#     ports:
+#       - 8080:80
+#       - 80:80
+#       - 443:443
+#     volumes:
+#       - .:/var/www/html:Z
+#       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+#       # - ./msmtprc:/etc/msmtprc:ro
+#   apache-php74:
+#     container_name: example_web74
+#     image: lamp_apache-php74
+#     restart: always
+#     ports:
+#       - 8074:80
+#     volumes:
+#       - .:/var/www/html:Z
+#       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+#       # - ./msmtprc:/etc/msmtprc:ro
+#   apache-php73:
+#     container_name: example_web73
+#     image: lamp_apache-php73
+#     restart: always
+#     ports:
+#       - 8073:80
+#     volumes:
+#       - .:/var/www/html:Z
+#       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+#       # - ./msmtprc:/etc/msmtprc:ro
+#   db:
+#     container_name: example_db
+#     image: lamp_mariadb55
+#     restart: always
+#     volumes:
+#       - data:/var/lib/mysql
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=root
+#       - MYSQL_DATABASE=database_name
+#       - MYSQL_USER=appuser
+#       - MYSQL_PASSWORD=devpass
+#   phpmyadmin:
+#     container_name: example_phpmyadmin
+#     image: lamp_phpmyadmin
+#     restart: always
+#     depends_on:
+#       - db
+#     ports:
+#       - "8306:80"
+#     environment:
+#       - PMA_ARBITRARY=1
+#       - PMA_HOST=db
+#       - PMA_USER=root
+#       - PMA_PASSWORD=root
+#       - MEMORY_LIMIT=256M
+#       - UPLOAD_LIMIT=256M
+#       - MAX_EXECUTION_TIME=0
+# volumes:
+#   data:
+#     external: true
+#     name: example-db
