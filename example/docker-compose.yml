@@ -43,9 +43,9 @@ services:
       - .:/var/www/html:Z
       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
-  mysql55:
-    container_name: mysql55
-    image: lamp-mysql:5.5
+  mariadb10:
+    container_name: mariadb10
+    image: lamp-mariadb:10.7
     restart: always
     volumes:
       - data:/var/lib/mysql
@@ -54,17 +54,28 @@ services:
       - MYSQL_DATABASE=database_name
       - MYSQL_USER=appuser
       - MYSQL_PASSWORD=devpass
+  # mysql55:
+  #   container_name: mysql55
+  #   image: lamp-mysql:5.5
+  #   restart: always
+  #   volumes:
+  #     - data:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  #     - MYSQL_DATABASE=database_name
+  #     - MYSQL_USER=appuser
+  #     - MYSQL_PASSWORD=devpass
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     restart: always
     depends_on:
-      - mysql55
+      - mariadb10
     ports:
       - "8306:80"
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOST=mysql55
+      - PMA_HOST=mariadb10
       - PMA_USER=root
       - PMA_PASSWORD=root
       - MEMORY_LIMIT=200M
