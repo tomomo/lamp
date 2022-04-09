@@ -33,16 +33,16 @@ services:
       - .:/var/www/html:Z
       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
       # - ./msmtprc:/etc/msmtprc:ro
-#   apache-php73:
-#     container_name: example_web73
-#     image: lamp_apache-php73
-#     restart: always
-#     ports:
-#       - 8073:80
-#     volumes:
-#       - .:/var/www/html:Z
-#       # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
-#       # - ./msmtprc:/etc/msmtprc:ro
+  php73:
+    container_name: php73
+    image: lamp-php:7.3-nodejs-apache
+    restart: always
+    ports:
+      - 8073:80
+    volumes:
+      - .:/var/www/html:Z
+      # # NOTE: メールを使用する場合はmsmtprcを作成しマウントさせる。
+      # - ./msmtprc:/etc/msmtprc:ro
 #   db:
 #     container_name: example_db
 #     image: lamp_mariadb55
