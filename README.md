@@ -1,6 +1,6 @@
 # LAMP
 
-LAMP環境（Linux,Apache,MariaDB,PHP）を構築するためのDockerコンテナイメージを作成する。
+LAMP環境（Linux,Apache,MariaDB,PHP with NodeJS）を構築するためのDockerコンテナイメージを作成する。
 
 ## 必須環境
 [Docker Desktop on Mac, Docker Desktop on Winows](https://docs.docker.com/compose/install/)などがインストールされ、`docker-compose`が使える状態であること。
@@ -13,25 +13,13 @@ LAMP環境（Linux,Apache,MariaDB,PHP）を構築するためのDockerコンテ�
     # 例）下記のような感じで作成されているはず。
     $ docker images
       :
-    lamp_apache-php80    latest    a2bba121937f   47 minutes ago      754MB
-    lamp_apache-php73    latest    9c5315f8ed1b   47 minutes ago      751MB
-    lamp_apache-php74    latest    0967f6e67873   47 minutes ago      754MB
-    lamp_phpmyadmin      latest    5e7fa3b7c9a4   About an hour ago   469MB
-    lamp_mariadb55       latest    ff7046da5474   About an hour ago   352MB
+    lamp-mariadb    10.7                af0ab28b16dc   5 minutes ago       482MB
+    lamp-mysql      5.5                 e0a1b648aa56   17 minutes ago      250MB
+    lamp-php        7.3-nodejs-apache   fcca4ece37c0   40 minutes ago      907MB
+    lamp-php        7.4-nodejs-apache   bf8954307e05   58 minutes ago      954MB
+    lamp-php        8.0-nodejs-apache   1f1cdfd37a39   About an hour ago   956MB
+    lamp-php        8.1-nodejs-apache   7e116ca4bd25   2 hours ago         960MB
     ```
 ## 使い方
 該当プロジェクトの`docker-compose.yml`内の`image`に指定する。
 （`example`フォルダを参照。）
-
-## 各コンテナイメージに関して
-### apache24-php73
-PHP7.3を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウェブサーバー。
-### apache24-php74
-PHP7.4を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウェブサーバー。
-### apache24-php80
-PHP8.0を有効化した[Apache2.4](https://httpd.apache.org/docs/2.4/ja/)のウェブサーバー。<br>
-`Imagick`は[不具合](https://github.com/Imagick/imagick/issues/358)のため有効化出来ていない。
-→イレギュラーなやり方で対応した。
-### mariadb55
-[MariaDB](https://mariadb.org/)5.5。<br>
-日本時間の設定や文字コードを`utf8mb4`に設定。
