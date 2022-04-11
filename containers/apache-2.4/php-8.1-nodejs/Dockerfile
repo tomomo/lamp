@@ -7,6 +7,7 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && apt-get update \
   && apt-get install -y \
   vim \
+  git git-lfs \
   msmtp msmtp-mta \
   libxml2-dev \
   libcurl3-dev libonig-dev \
