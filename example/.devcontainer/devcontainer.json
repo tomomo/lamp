@@ -1,0 +1,36 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "php81",
+  "workspaceFolder": "/var/www/html",
+  // NOTE: Win10WSL2の時だけ有効にする
+  // "remoteUser": "www-data",
+  "settings": {},
+  "extensions": [
+    "mrmlnc.vscode-apache",
+    "formulahendry.auto-close-tag",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "MS-CEINTL.vscode-language-pack-ja",
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-mermaid",
+    "junstyle.php-cs-fixer",
+    "neilbrayfield.php-docblocker",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode",
+    "alexcvzz.vscode-sqlite",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "johnsoncodehk.volar",
+    "redhat.vscode-yaml"
+  ]
+}
