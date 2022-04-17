@@ -9,6 +9,7 @@
   "extensions": [
     "mrmlnc.vscode-apache",
     "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
     "streetsidesoftware.code-spell-checker",
     "ms-azuretools.vscode-docker",
     "EditorConfig.EditorConfig",
@@ -16,6 +17,7 @@
     "mhutchie.git-graph",
     "donjayamanne.githistory",
     "codezombiech.gitignore",
+    "vincaslt.highlight-matching-tag",
     "eamodio.gitlens",
     "oderwat.indent-rainbow",
     "MS-CEINTL.vscode-language-pack-ja",
