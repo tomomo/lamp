@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  web:
+    image: lamp-apache:2.4-bullseye
+    build: bullseye/apache-2.4
+    depends_on:
+      selfcert:
+        condition: service_completed_successfully
+    volumes:
+      - selfcert:/usr/local/apache2/certs:ro,cached
+      - ./bullseye/apache-2.4/vhosts:/usr/local/apache2/conf/vhosts:ro
+  php81:
+    image: lamp-php-fpm:8.1-nodejs-bullseye
+    build: bullseye/php-fpm-8.1-nodejs
+  php80:
+    image: lamp-php-fpm:8.0-nodejs-bullseye
+    build: bullseye/php-fpm-8.0-nodejs
+  php74:
+    image: lamp-php-fpm:7.4-nodejs-bullseye
+    build: bullseye/php-fpm-7.4-nodejs
+  mysql55:
+    image: lamp-mysql:5.5
+    build: ./mysql-5.5
+  mysql108:
+    image: lamp-mariadb:10.8
+    build: ./mariadb-10.8
+  selfcert:
+    build: ./selfcert
+    environment:
+      DOMAIN: example.local
+    volumes:
+      - selfcert:/certs
+
+volumes:
+  selfcert:
+    # NOTE: docker volume create selfcert
+    name: selfcert
+    external: true
