@@ -58,3 +58,5 @@ LAMP環境（Linux,Apache,MariaDB,PHP with NodeJS）を構築するためのDock
     code --install-extension redhat.vscode-yaml
     ```
 + Win10の時は、**devcontainer.json**の"**remoteUser**"を有効にする。
+
+docker-compose -f containers/docker-compose.yml build && docker images | grep -E '^lamp-(php-fpm|apache|mysql|mariadb) '
