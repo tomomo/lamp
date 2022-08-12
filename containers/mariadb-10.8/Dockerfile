@@ -1,6 +1,4 @@
-FROM mariadb:10.7
-
-LABEL maintainer "tomomo <eclairpark@gmail.com>"
+FROM mariadb:10.8
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN apt-get update \
@@ -11,6 +9,8 @@ RUN apt-get update \
 
 RUN { \
   echo '[mysqld]'; \
-  echo 'character-set-server = utf8mb4'; \
-  echo 'collation-server = utf8mb4_general_ci'; \
+  echo 'character-set-server=utf8mb4'; \
+  echo 'collation-server=utf8mb4_general_ci'; \
+  echo '[client]'; \
+  echo 'default-character-set=utf8mb4'; \
 } >> /etc/mysql/conf.d/server.cnf

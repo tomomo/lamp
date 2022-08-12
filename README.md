@@ -31,6 +31,7 @@ LAMP環境（Linux,Apache,MariaDB,PHP with NodeJS）を構築するためのDock
     # VSCode
     code --install-extension mrmlnc.vscode-apache
     code --install-extension formulahendry.auto-close-tag
+    code --install-extension formulahendry.auto-rename-tag
     code --install-extension streetsidesoftware.code-spell-checker
     code --install-extension ms-azuretools.vscode-docker
     code --install-extension EditorConfig.EditorConfig
@@ -38,6 +39,7 @@ LAMP環境（Linux,Apache,MariaDB,PHP with NodeJS）を構築するためのDock
     code --install-extension mhutchie.git-graph
     code --install-extension donjayamanne.githistory
     code --install-extension codezombiech.gitignore
+    code --install-extension vincaslt.highlight-matching-tag
     code --install-extension eamodio.gitlens
     code --install-extension oderwat.indent-rainbow
     code --install-extension MS-CEINTL.vscode-language-pack-ja
@@ -56,3 +58,5 @@ LAMP環境（Linux,Apache,MariaDB,PHP with NodeJS）を構築するためのDock
     code --install-extension redhat.vscode-yaml
     ```
 + Win10の時は、**devcontainer.json**の"**remoteUser**"を有効にする。
+
+docker-compose -f containers/docker-compose.yml build && docker images | grep -E '^lamp-(php-fpm|apache|mysql|mariadb) '

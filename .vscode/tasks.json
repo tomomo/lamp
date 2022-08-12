@@ -4,16 +4,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "EXAMPLE: docker compose up -d",
+      "label": "build",
       "type": "shell",
-      "command": "docker compose -f example/docker-compose.yml up -d",
+      "command": "docker-compose -f containers/docker-compose.yml build && docker images | grep -E '^lamp-(php-fpm|apache|mysql|mariadb) '",
       "problemMatcher": []
     },
-    {
-      "label": "EXAMPLE: docker compose down",
-      "type": "shell",
-      "command": "docker compose -f example/docker-compose.yml down",
-      "problemMatcher": []
-    }
   ]
 }
